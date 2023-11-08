@@ -7,9 +7,8 @@ pipeline {
     disableConcurrentBuilds(abortPrevious: true)
   }
   stages {
-    stage('myStage') {                                              
+    stage('IF_TAG') {                                              
       steps {                                                       
-        echo 'some steps here that should always be executed'
         script {                                                    
           if (env.TAG_NAME) {                                       
             echo "triggered by the TAG:"                                 
