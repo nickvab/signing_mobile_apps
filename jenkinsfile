@@ -15,7 +15,7 @@ pipeline {
               file(credentialsId: 'spatium_keystore', variable: 'spt_keystore'), 
               string(credentialsId: 'spatium_keystore_pass', variable: 'spt_keystore_pass')
               ]) {
-                sh "jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 -storepass \$spt_keystore_pass -keystore \$spt_keystore **/app-release.aab cordova"
+                sh "echo env.TAG_NAME"
               }
             archiveArtifacts artifacts: '**/app-release.aab', followSymlinks: false                                       
         } else {                                                  
